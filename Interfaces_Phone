@@ -1,0 +1,61 @@
+import java.util.Scanner;
+
+interface camera{   // interface for camera functions
+    void takeSnap();
+    void recordVideo();
+
+    default void record4kVideo() {
+        System.out.println("Recording in 4k");
+    }
+}
+
+interface wifi{     // interface for wifi
+    String[] getNetwork();
+    void connectToNetwork(String network);
+}
+
+class MyCellPhone{  // class for calling
+    void callNumber(int phonenumber){
+        System.out.println("Calling"+phonenumber);
+    }
+    void pickCall(){
+        System.out.println("Connecting...");
+    }
+}
+
+class SmartPhone extends MyCellPhone implements wifi, camera{
+    public void takeSnap(){
+        System.out.println("Taking Snap");
+    }
+    public void recordVideo(){
+        System.out.println("Recording video");
+    }
+    public String[] getNetwork(){
+        System.out.println("Getting list of networks");
+        String[] networkList = {"Airtel","joi","idea"};
+        return networkList;
+    }
+    public void connectToNetwork(String network){
+        System.out.println("Connecting to"+network);
+    }
+}
+public class interface_phone {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        SmartPhone sp = new SmartPhone();   //creating object
+        String[] ar = sp.getNetwork();
+        for (String item : ar) {  // for printing the networks list
+            System.out.println(item);
+        }
+        System.out.println("1.For Photo\n2.For Video\n3.connect to network\n4.Call\n5. pick call\n:");
+        int ch = sc.nextInt();
+        switch (ch) {
+            case 1 -> sp.takeSnap();
+            case 2 -> sp.recordVideo();
+            case 3 -> sp.connectToNetwork("airtel");
+            case 4 -> sp.callNumber(705521);
+            case 5 -> sp.pickCall();
+            default -> System.out.println("enter right choice");
+        }
+    }
+}
