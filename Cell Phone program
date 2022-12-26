@@ -1,0 +1,22 @@
+cell phone 
+
+//class CellPhone{
+//    public void ringing(){
+//        System.out.println("Ringing....");
+//    }
+//    public void vibrating(){
+//        System.out.println("Vibrating...");
+//    }
+//    public void Silent(){
+//        System.out.println("Silent...");
+//    }
+//}
+//
+//public class OOPs {
+//    public static void main(String[] args) {
+//        CellPhone asus = new CellPhone();
+//        asus.Silent();
+//        asus.vibrating();
+//        asus.ringing();
+//    }
+//}
